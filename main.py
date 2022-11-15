@@ -7,8 +7,8 @@ app = FastAPI()
 templates=Jinja2Templates(directory="templates")
 
 
-@app.api_route("/", response_class=HTMLResponse,methods=['GET','POST'])
-async def showData(request: Request):
+@app.get("/", response_class=HTMLResponse)
+def showData(request: Request):
      
     return templates.TemplateResponse('registration.html', {"request": request})
 
